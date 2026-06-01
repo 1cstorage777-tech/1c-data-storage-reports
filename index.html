@@ -3,8 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ua-blue:#005BBB;--ua-yellow:#FFD700;--ua-dark:#0A1628;--ua-mid:#112244;
-  --ua-accent:#3B9DFF;--ua-green:#2ECC71;--ua-soft:#8BA5C8;
+  --ua-blue:#005BBB;--ua-yellow:#FFD700;--ua-accent:#3B9DFF;--ua-green:#2ECC71;--ua-soft:#8BA5C8;
 }
 body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
 .wrap{padding:0 0 40px}
@@ -19,6 +18,14 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
 
 .section-title{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;color:var(--ua-soft);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;padding-left:2px}
 
+/* NEW MONTH banner */
+.new-month-banner{background:linear-gradient(135deg,#0d2800,#1a4400);border:1px solid rgba(46,204,113,.4);border-radius:16px;padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;gap:16px}
+.new-month-icon{font-size:32px;flex-shrink:0}
+.new-month-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:900;color:#2ECC71;margin-bottom:4px}
+.new-month-sub{font-size:12px;color:rgba(255,255,255,.6);line-height:1.5}
+.new-month-sum{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:900;color:#FFD700;text-align:right;flex-shrink:0}
+.new-month-cnt{font-size:11px;color:rgba(255,255,255,.4);text-align:right}
+
 .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .kpi-card{background:linear-gradient(135deg,#0d1f3c 0%,#112244 100%);border:1px solid rgba(59,157,255,.2);border-radius:16px;padding:20px 18px}
 .kpi-card.big{grid-column:1/-1;background:linear-gradient(135deg,#1a1000 0%,#2a1a00 100%);border-color:rgba(255,215,0,.3)}
@@ -27,16 +34,17 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
 .kpi-value{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;line-height:1}
 .kpi-value.yellow{color:#FFD700}
 .kpi-value.blue{color:#3B9DFF}
-.kpi-value.green{color:#2ECC71}
 .kpi-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px}
 
 .chart-card{background:linear-gradient(135deg,#0d1f3c 0%,#112244 100%);border:1px solid rgba(59,157,255,.2);border-radius:16px;padding:22px 20px;margin-bottom:16px}
 
-.month-chart{display:flex;align-items:flex-end;gap:5px;height:120px;padding-top:10px}
+.month-chart{display:flex;align-items:flex-end;gap:4px;height:120px;padding-top:10px}
 .month-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
-.month-bar{width:100%;border-radius:4px 4px 0 0;background:linear-gradient(to top,#005BBB,#3B9DFF);min-height:4px}
-.month-bar.highlight{background:linear-gradient(to top,#cc8800,#FFD700)}
-.month-lbl{font-size:8.5px;color:rgba(255,255,255,.45);text-align:center;line-height:1.2}
+.month-bar{width:100%;border-radius:4px 4px 0 0;min-height:4px}
+.month-bar.blue{background:linear-gradient(to top,#005BBB,#3B9DFF)}
+.month-bar.gold{background:linear-gradient(to top,#cc8800,#FFD700)}
+.month-bar.green{background:linear-gradient(to top,#1a7a3a,#2ECC71)}
+.month-lbl{font-size:8px;color:rgba(255,255,255,.45);text-align:center;line-height:1.2}
 
 .top5-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .rank-badge{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:900;flex-shrink:0}
@@ -48,7 +56,7 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
 .donor-count{font-size:11px;color:var(--ua-soft);margin-top:1px}
 .donor-sum-bar{height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin-top:6px}
 .donor-bar-fill{height:100%;border-radius:3px}
-.donor-amount{font-size:11px;font-family:'Unbounded',sans-serif;font-weight:700;color:#FFD700;text-align:right;min-width:70px}
+.donor-amount{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:#FFD700;text-align:right;min-width:70px}
 
 .dist-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .dist-label{font-size:12px;color:rgba(255,255,255,.8);width:80px;flex-shrink:0}
@@ -75,17 +83,29 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
 <div class="header">
   <div class="header-badge">🇺🇦 Статистика зборів для ЗСУ</div>
   <h1>Разом <span>для перемоги</span></h1>
-  <p>Січень 2025 — Квітень 2026 • 334 донати</p>
+  <p>Січень 2025 — Травень 2026 • 390 донатів</p>
 </div>
 
-<div class="section-title">Ключові показники</div>
+<!-- NEW MONTH HIGHLIGHT -->
+<div class="new-month-banner">
+  <div class="new-month-icon">🚀</div>
+  <div style="flex:1">
+    <div class="new-month-title">Травень 2026 — новий збір!</div>
+    <div class="new-month-sub">Окремий зенітний ракетний дивізіон<br>56 донатів від небайдужих людей</div>
+  </div>
+  <div>
+    <div class="new-month-sum">19 430 ₴</div>
+    <div class="new-month-cnt">зібрано</div>
+  </div>
+</div>
 
+<div class="section-title">Ключові показники (всього)</div>
 <div class="kpi-grid">
   <div class="kpi-card big">
     <span class="kpi-icon">💛</span>
     <div class="kpi-label">Загальна сума зборів</div>
-    <div class="kpi-value yellow">142 861 ₴</div>
-    <div class="kpi-sub">від 334 транзакцій • 2 фонди</div>
+    <div class="kpi-value yellow">162 291 ₴</div>
+    <div class="kpi-sub">від 390 транзакцій • 3 напрямки</div>
   </div>
   <div class="kpi-card">
     <span class="kpi-icon">🏆</span>
@@ -96,27 +116,35 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
   <div class="kpi-card">
     <span class="kpi-icon">📊</span>
     <div class="kpi-label">Середній донат</div>
-    <div class="kpi-value blue">428 ₴</div>
+    <div class="kpi-value blue">416 ₴</div>
     <div class="kpi-sub">Медіана: 300 ₴</div>
   </div>
 </div>
 
 <div class="chart-card">
-  <div class="section-title">Розподіл по фондах</div>
+  <div class="section-title">Розподіл по напрямках</div>
   <div class="funds-row">
     <div class="fund-icon" style="background:rgba(0,91,187,.2)">🛡️</div>
     <div class="fund-info">
       <div class="fund-name">Сергій Стерненко</div>
-      <div class="fund-bar-track"><div style="height:100%;width:65.5%;background:linear-gradient(90deg,#005BBB,#3B9DFF);border-radius:4px"></div></div>
-      <div style="display:flex;justify-content:space-between"><span class="fund-amount">93 575 ₴</span><span class="fund-pct">65.5% • 220 донатів</span></div>
+      <div class="fund-bar-track"><div style="height:100%;width:57.7%;background:linear-gradient(90deg,#005BBB,#3B9DFF);border-radius:4px"></div></div>
+      <div style="display:flex;justify-content:space-between"><span class="fund-amount">93 575 ₴</span><span class="fund-pct">57.7% • 220 донатів</span></div>
     </div>
   </div>
   <div class="funds-row">
     <div class="fund-icon" style="background:rgba(255,215,0,.15)">❤️</div>
     <div class="fund-info">
       <div class="fund-name">Повернись живим (Т.Чмут)</div>
-      <div class="fund-bar-track"><div style="height:100%;width:34.5%;background:linear-gradient(90deg,#cc8800,#FFD700);border-radius:4px"></div></div>
-      <div style="display:flex;justify-content:space-between"><span class="fund-amount">49 286 ₴</span><span class="fund-pct">34.5% • 114 донатів</span></div>
+      <div class="fund-bar-track"><div style="height:100%;width:30.4%;background:linear-gradient(90deg,#cc8800,#FFD700);border-radius:4px"></div></div>
+      <div style="display:flex;justify-content:space-between"><span class="fund-amount">49 286 ₴</span><span class="fund-pct">30.4% • 114 донатів</span></div>
+    </div>
+  </div>
+  <div class="funds-row">
+    <div class="fund-icon" style="background:rgba(46,204,113,.15)">✈️</div>
+    <div class="fund-info">
+      <div class="fund-name">Зенітний ракетний дивізіон</div>
+      <div class="fund-bar-track"><div style="height:100%;width:12%;background:linear-gradient(90deg,#1a7a3a,#2ECC71);border-radius:4px"></div></div>
+      <div style="display:flex;justify-content:space-between"><span class="fund-amount">19 430 ₴</span><span class="fund-pct">12.0% • 56 донатів</span></div>
     </div>
   </div>
 </div>
@@ -124,9 +152,10 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
 <div class="chart-card">
   <div class="section-title">Динаміка по місяцях</div>
   <div class="month-chart" id="monthChart"></div>
-  <div style="display:flex;gap:8px;margin-top:12px;justify-content:center">
+  <div style="display:flex;gap:12px;margin-top:12px;justify-content:center;flex-wrap:wrap">
     <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.4)"><span style="width:10px;height:10px;border-radius:2px;background:linear-gradient(to top,#005BBB,#3B9DFF);display:inline-block"></span>звичайний</span>
     <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.4)"><span style="width:10px;height:10px;border-radius:2px;background:#FFD700;display:inline-block"></span>рекордний</span>
+    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.4)"><span style="width:10px;height:10px;border-radius:2px;background:#2ECC71;display:inline-block"></span>дивізіон</span>
   </div>
 </div>
 
@@ -139,7 +168,7 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
   <div class="section-title">Розмір донатів — портрет донатера</div>
   <div id="distChart"></div>
   <div style="margin-top:14px;padding:14px;background:rgba(59,157,255,.06);border-radius:10px;border-left:3px solid #3B9DFF">
-    <p style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">💡 <strong style="color:#fff">Більшість донатерів</strong> роблять платежі від 100 до 500 ₴ — стабільно і регулярно. Це справжній «хребет» підтримки ЗСУ!</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6">💡 <strong style="color:#fff">Більшість донатерів</strong> дають від 100 до 500 ₴ — стабільно і регулярно. Це справжній «хребет» підтримки ЗСУ!</p>
   </div>
 </div>
 
@@ -147,25 +176,25 @@ body{background:transparent;color:#fff;font-family:'Inter',sans-serif}
   <div class="ukraine-flag"><div class="flag-blue"></div><div class="flag-yellow"></div></div>
   Слава Україні! Разом до перемоги 🇺🇦
 </div>
-
 </div>
 
 <script>
 const months = [
-  {l:'Січ\n25',a:3900,h:false},
-  {l:'Лют\n25',a:5500,h:false},
-  {l:'Кві\n25',a:15100,h:false},
-  {l:'Тра\n25',a:16900,h:true},
-  {l:'Чер\n25',a:14077,h:false},
-  {l:'Лип\n25',a:8370,h:false},
-  {l:'Сер\n25',a:8391,h:false},
-  {l:'Вер\n25',a:19095,h:true},
-  {l:'Жов\n25',a:8669,h:false},
-  {l:'Гру\n25',a:4270,h:false},
-  {l:'Січ\n26',a:5688,h:false},
-  {l:'Лют\n26',a:6350,h:false},
-  {l:'Бер\n26',a:15350,h:false},
-  {l:'Кві\n26',a:11201,h:false},
+  {l:'Січ\n25',a:3900,type:'blue'},
+  {l:'Лют\n25',a:5500,type:'blue'},
+  {l:'Кві\n25',a:15100,type:'blue'},
+  {l:'Тра\n25',a:16900,type:'gold'},
+  {l:'Чер\n25',a:14077,type:'blue'},
+  {l:'Лип\n25',a:8370,type:'blue'},
+  {l:'Сер\n25',a:8391,type:'blue'},
+  {l:'Вер\n25',a:19095,type:'gold'},
+  {l:'Жов\n25',a:8669,type:'blue'},
+  {l:'Гру\n25',a:4270,type:'blue'},
+  {l:'Січ\n26',a:5688,type:'blue'},
+  {l:'Лют\n26',a:6350,type:'blue'},
+  {l:'Бер\n26',a:15350,type:'blue'},
+  {l:'Кві\n26',a:11201,type:'blue'},
+  {l:'Тра\n26',a:19430,type:'green'},
 ];
 const maxA = Math.max(...months.map(m=>m.a));
 const mc = document.getElementById('monthChart');
@@ -173,16 +202,16 @@ months.forEach(m=>{
   const h = Math.round((m.a/maxA)*100);
   const col = document.createElement('div');
   col.className='month-col';
-  col.innerHTML=`<div class="month-bar${m.h?' highlight':''}" style="height:${h}px"></div><div class="month-lbl">${m.l}</div>`;
+  col.innerHTML=`<div class="month-bar ${m.type}" style="height:${h}px"></div><div class="month-lbl">${m.l}</div>`;
   mc.appendChild(col);
 });
 
 const top5 = [
-  {name:'Дмитро К.',sum:9276,count:6,color:'#FFD700'},
-  {name:'Світлана Т.',sum:7317,count:9,color:'#C0C0C0'},
-  {name:'Сергій С.',sum:6500,count:7,color:'#CD7F32'},
-  {name:'Ігор Ш.',sum:6110,count:9,color:'#3B9DFF'},
-  {name:'Дмитро М.',sum:5400,count:11,color:'#2ECC71'},
+  {name:'Дмитро К.',sum:11376,count:7,color:'#FFD700'},
+  {name:'Ігор Ш.',sum:8490,count:14,color:'#C0C0C0'},
+  {name:'Сергій С.',sum:7500,count:8,color:'#CD7F32'},
+  {name:'Світлана Т.',sum:7317,count:9,color:'#3B9DFF'},
+  {name:'Дмитро М.',sum:5900,count:12,color:'#2ECC71'},
 ];
 const maxSum = top5[0].sum;
 const ranks=['rank-1','rank-2','rank-3','rank-other','rank-other'];
@@ -202,11 +231,11 @@ top5.forEach((d,i)=>{
 });
 
 const dist = [
-  {l:'0–100 ₴',n:68,pct:20,col:'#535353'},
-  {l:'100–300 ₴',n:119,pct:36,col:'#005BBB'},
-  {l:'300–500 ₴',n:77,pct:23,col:'#3B9DFF'},
-  {l:'500–1000 ₴',n:58,pct:17,col:'#FFD700'},
-  {l:'1000+ ₴',n:12,pct:4,col:'#2ECC71'},
+  {l:'0–100 ₴',n:88,pct:23,col:'#535353'},
+  {l:'100–300 ₴',n:134,pct:34,col:'#005BBB'},
+  {l:'300–500 ₴',n:93,pct:24,col:'#3B9DFF'},
+  {l:'500–1000 ₴',n:61,pct:16,col:'#FFD700'},
+  {l:'1000+ ₴',n:14,pct:4,col:'#2ECC71'},
 ];
 const dc = document.getElementById('distChart');
 dist.forEach(d=>{
